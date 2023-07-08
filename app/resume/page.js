@@ -1,4 +1,5 @@
 import PageTransition from "../pageTransitionComponent";
+import ResumeEntryTemplate from "./resumeEntryTemplate";
 
 export default function Resume() {
 	return (
@@ -18,17 +19,13 @@ export default function Resume() {
 					because the parent div has the Resume title */}
 					<h1 className='mb-28'>&nbsp;</h1>
 
-					<div className='flex flex-row space-x-6 text-lg'>
-						<p>2035-present</p>
-						<div className='flex flex-col'>
-							<h3 className='font-semibold'>Editor</h3>
-							<p className='max-w-sm'>
-								Commodo deserunt amet deserunt enim Lorem sunt pariatur aliquip irure fugiat eiusmod. In aliquip dolor
-								culpa dolor eiusmod. Id ipsum sint tempor nisi id Lorem culpa esse ut dolore quis. Quis dolor sit in ex.
-								Nisi ex culpa est duis nostrud.
-							</p>
-						</div>
-					</div>
+					<ResumeEntryTemplate
+						timePeriod={"2035-present"}
+						jobTitle={"Editor"}
+						Desc={
+							"Nulla ipsum qui sit enim id elit sunt mollit Lorem aute ipsum et. Est sunt occaecat pariatur sint deserunt officia. Ea consectetur consectetur occaecat occaecat sint esse ex excepteur. Esse est sunt eiusmod deserunt sunt dolor velit eu."
+						}
+					/>
 				</div>
 			</div>
 		</PageTransition>
