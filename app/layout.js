@@ -8,10 +8,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
+		// old background color -> (#f2f2f2)
 		<html className='bg-[#f2f2f2]' lang='en'>
 			<body>
 				<Navbar />
 				{children}
+				{/* Temp Footer below */}
+				<div className='my-48'></div>
 			</body>
 		</html>
 	);
