@@ -13,7 +13,7 @@ export default function Navbar() {
 			initial={initial}
 			animate={animate}
 			transition={transition}
-			className='flex flex-row justify-between pt-2 pb-4 border-b-gray-300 border-b-2 lg:mb-10 bg-[#f2f2f2] drop-shadow-md z-10'
+			className='flex flex-row justify-between pt-2 pb-4 border-b-[#0c2431] border-b-[1px] lg:mb-10 bg-[#dfd8d0] drop-shadow-lg z-10'
 		>
 			<motion.div initial={{ opacity: 0, x: -100 }} animate={animate} transition={transition}>
 				<Name />

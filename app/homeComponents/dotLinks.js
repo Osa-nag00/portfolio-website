@@ -25,7 +25,7 @@ export default function Dots() {
 				<motion.button
 					whileTap={whenTapAction}
 					whileHover={whileHoverAction}
-					className='bg-yellow-500 mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl lg:drop-shadow-xl'
+					className='bg-[#0c2431] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl lg:drop-shadow-xl'
 				>
 					Resume
 				</motion.button>
@@ -36,7 +36,7 @@ export default function Dots() {
 				<motion.button
 					whileTap={whenTapAction}
 					whileHover={whileHoverAction}
-					className='bg-red-500 mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
+					className='bg-[#194a50] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
 				>
 					Projects
 				</motion.button>
@@ -46,7 +46,7 @@ export default function Dots() {
 				<motion.button
 					whileTap={whenTapAction}
 					whileHover={whileHoverAction}
-					className='bg-blue-300 mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
+					className='bg-[#d37556] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
 				>
 					Contact
 				</motion.button>

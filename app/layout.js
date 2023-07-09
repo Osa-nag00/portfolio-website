@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		// old background color -> (#f2f2f2)
-		<html className='bg-[#f2f2f2]' lang='en'>
+		<html className='bg-[#e1dad2]' lang='en'>
 			<body>
 				<Navbar />
 				{children}
