@@ -33,12 +33,13 @@ export default function ProfilePicture() {
 		>
 			<motion.div whileHover={whileHoverAction}>
 				<Image
-					className='rounded-full overflow-hidden border-16 border-black drop-shadow-2xl'
+					className='rounded-full overflow-hidden border-16 border-black drop-shadow-2xl w-auto h-auto'
 					src={pfp}
 					width={dimension}
 					height={dimension}
 					alt='Picture of Osa Naghise'
 					quality={80}
+					priority
 				/>
 			</motion.div>
 		</motion.div>
