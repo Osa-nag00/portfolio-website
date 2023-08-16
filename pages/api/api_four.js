@@ -4,11 +4,18 @@ const handler = async (req, res) => {
 		const { method } = req;
 		switch (method) {
 			case "POST": {
-				//Do some thing
-				// TODO:
-				// come back and fix the validity of sending emails
-				// and how to do this properly
-				await sendMail("Portfolio Contact Form", process.env.NODEMAILER_EMAIL, req.body.message);
+				let formattedMsg =
+					"Name: " +
+					req.body.firstName +
+					" " +
+					req.body.lastName +
+					"\n" +
+					"Email: " +
+					req.body.email +
+					"\n\n" +
+					req.body.message;
+
+				await sendMail("Portfolio Contact Form", process.env.TO_EMAIL, formattedMsg);
 				res.status(200).send("Success");
 				break;
 			}
