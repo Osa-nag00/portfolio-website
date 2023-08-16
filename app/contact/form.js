@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
+import { useRouter } from "next/navigation";
 
 export default function Form() {
+	const router = useRouter();
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -11,6 +13,7 @@ export default function Form() {
 	const [submitted, setSubmitted] = useState(false);
 	const [whileHoverAction, setWhileHoverAction] = useState();
 	const [whenTapAction, setWhenTapAction] = useState();
+	const [buttonTextForLoading, setButtonTextForLoading] = useState("Submit");
 
 	useEffect(() => {
 		if (isMobile) {
@@ -22,10 +25,26 @@ export default function Form() {
 		}
 	}, []);
 
+	function ValidateEmail(mail) {
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+			return true;
+		}
+		alert("You have entered an invalid email address!");
+		return false;
+	}
+
 	const handleSubmit = (e) => {
+		router.push("/SentConfirmation");
 		e.preventDefault();
 		// You can add your form submission logic here
-		console.log("Form submitted:", { firstName, lastName, email, message });
+		// console.log("Form submitted:", { firstName, lastName, email, message });
+
+		// if email not valid
+		if (!ValidateEmail(email)) {
+			setSubmitted(false);
+			setEmail("");
+			return;
+		}
 
 		let data = {
 			firstName,
@@ -33,6 +52,8 @@ export default function Form() {
 			email,
 			message,
 		};
+
+		setButtonTextForLoading("Loading");
 
 		fetch("/api/api_four", {
 			method: "POST",
@@ -50,6 +71,7 @@ export default function Form() {
 				setLastName("");
 				setEmail("");
 				setMessage("");
+				router.push("/SentConfirmation");
 			}
 		});
 	};
@@ -124,7 +146,7 @@ export default function Form() {
 						whileHover={whileHoverAction}
 						className='bg-[#AEBDCA] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
 					>
-						Submit
+						{buttonTextForLoading}
 					</motion.button>
 				</div>
 			</form>
