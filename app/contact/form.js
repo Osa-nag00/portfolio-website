@@ -1,11 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { isMobile } from "react-device-detect";
 
 export default function Form() {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
+	const [whileHoverAction, setWhileHoverAction] = useState();
+	const [whenTapAction, setWhenTapAction] = useState();
+
+	useEffect(() => {
+		if (isMobile) {
+			setWhileHoverAction({});
+			setWhenTapAction({ scale: 0.6, transition: { type: "spring", stiffness: 400, damping: 17 } });
+		} else {
+			setWhileHoverAction({ scale: 1.2 });
+			setWhenTapAction({ scale: 0.8, transition: { type: "spring", stiffness: 400, damping: 17 } });
+		}
+	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -76,9 +90,14 @@ export default function Form() {
 						required
 					/>
 				</div>
-				<button type='submit' className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600'>
+				<motion.button
+					type='submit'
+					whileTap={whenTapAction}
+					whileHover={whileHoverAction}
+					className='bg-[#AEBDCA] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
+				>
 					Submit
-				</button>
+				</motion.button>
 			</form>
 		</div>
 	);
