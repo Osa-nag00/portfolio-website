@@ -4,8 +4,8 @@ import Form from "./form";
 export default function Contact() {
 	return (
 		<PageTransition>
-			<div className='flex flex-row justify-around'>
-				<div className='flex flex-col'>
+			<div className='flex md:flex-row flex-col justify-around'>
+				<div className='flex flex-col md:mb-0 mb-24'>
 					<div className='mb-10'>
 						<h1 className='text-6xl font-semibold  mb-4'>Contact</h1>
 						<h3 className='text-md'>Looking forward to hearing from you</h3>

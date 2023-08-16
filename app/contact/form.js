@@ -55,12 +55,12 @@ export default function Form() {
 	};
 
 	return (
-		<div>
+		<div className='md:px-0 px-10'>
 			<form onSubmit={handleSubmit}>
 				<div className='mb-4'>
 					{/* for first and last name */}
-					<div className='flex flex-row'>
-						<div className='pr-5'>
+					<div className='flex md:flex-row flex-col'>
+						<div className='md:pr-5 pr-0'>
 							<label htmlFor='name' className='block mb-1 font-medium'>
 								First Name
 							</label>
@@ -73,7 +73,7 @@ export default function Form() {
 								required
 							/>
 						</div>
-						<div className='pl-5'>
+						<div className='md:pl-5 pl-0'>
 							<div>
 								<label htmlFor='name' className='block mb-1 font-medium'>
 									Last Name
@@ -117,14 +117,16 @@ export default function Form() {
 						required
 					/>
 				</div>
-				<motion.button
-					type='submit'
-					whileTap={whenTapAction}
-					whileHover={whileHoverAction}
-					className='bg-[#AEBDCA] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
-				>
-					Submit
-				</motion.button>
+				<div className='flex md:justify-start justify-end'>
+					<motion.button
+						type='submit'
+						whileTap={whenTapAction}
+						whileHover={whileHoverAction}
+						className='bg-[#AEBDCA] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
+					>
+						Submit
+					</motion.button>
+				</div>
 			</form>
 		</div>
 	);
