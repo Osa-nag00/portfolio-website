@@ -8,6 +8,7 @@ export default function Form() {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
+	const [submitted, setSubmitted] = useState(false);
 	const [whileHoverAction, setWhileHoverAction] = useState();
 	const [whenTapAction, setWhenTapAction] = useState();
 
@@ -25,6 +26,32 @@ export default function Form() {
 		e.preventDefault();
 		// You can add your form submission logic here
 		console.log("Form submitted:", { firstName, lastName, email, message });
+
+		let data = {
+			firstName,
+			lastName,
+			email,
+			message,
+		};
+
+		fetch("/api/api_four", {
+			method: "POST",
+			headers: {
+				Accept: "application/json, text/plain, */*",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		}).then((res) => {
+			console.log("Response received");
+			if (res.status === 200) {
+				console.log("Response succeeded!");
+				setSubmitted(true);
+				setFirstName("");
+				setLastName("");
+				setEmail("");
+				setMessage("");
+			}
+		});
 	};
 
 	return (
@@ -84,7 +111,7 @@ export default function Form() {
 					</label>
 					<textarea
 						id='message'
-						className='w-full px-3 py-2 border border-gray-300 rounded-md'
+						className='w-full h-32 px-3 py-2 border border-gray-300 rounded-md'
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
 						required
