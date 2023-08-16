@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
 		// old background color -> (#f2f2f2)
 		<html className='bg-[#F5EFE6]' lang='en'>
 			<body>
-				<Navbar></Navbar>
+				<Navbar />
 				{children}
 				{/* Temp Footer below */}
 				<div className='my-48'></div>
