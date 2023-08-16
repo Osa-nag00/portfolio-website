@@ -31,14 +31,13 @@ export default function Dots() {
 				</motion.button>
 			</Link>
 
-			<Link href={"/projects"}>
-				{" "}
+			<Link href={"https://github.com/Osa-nag00"}>
 				<motion.button
 					whileTap={whenTapAction}
 					whileHover={whileHoverAction}
 					className='bg-[#AEBDCA] mx-2 py-10 px-5 lg:py-[55px] lg:px-[35px] border border-black rounded-full font-bold text-xl drop-shadow-xl'
 				>
-					Projects
+					Github
 				</motion.button>
 			</Link>
 
